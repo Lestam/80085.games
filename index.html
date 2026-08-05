@@ -3,53 +3,147 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>80085games — Wrist Survivors</title>
-<meta name="description" content="80085games — indie games. Wrist Survivors: survive the descent to hell, on your Apple Watch.">
+<title>Wrist Survivors — survive the descent, on your Apple Watch</title>
+<meta name="description" content="Wrist Survivors by 80085games — a survivors-like that lives on your Apple Watch. Descend into hell, build your arsenal, fight bosses. First death is free.">
+<meta property="og:title" content="Wrist Survivors">
+<meta property="og:description" content="Survive the descent to hell — on your Apple Watch. Out now on the App Store.">
+<meta property="og:image" content="https://80085.games/img/icon.png">
 <style>
   :root { color-scheme: dark; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    background: radial-gradient(ellipse at 50% 35%, #2a0505 0%, #0a0101 70%);
-    color: #e8dccc; font-family: Georgia, 'Times New Roman', serif;
-    min-height: 100vh; display: flex; flex-direction: column;
-    align-items: center; justify-content: center; text-align: center;
-    padding: 2rem 1rem;
-  }
-  .ring {
-    width: 260px; height: 260px; border-radius: 50%;
-    border: 3px solid rgba(140, 18, 18, .55);
+    background:
+      radial-gradient(ellipse 120% 60% at 50% -10%, #38080a 0%, transparent 60%),
+      radial-gradient(ellipse 100% 50% at 50% 105%, #1c0d02 0%, transparent 55%),
+      #0a0403;
+    color: #e8dccc;
+    font-family: Georgia, 'Times New Roman', serif;
+    min-height: 100vh;
     display: flex; flex-direction: column; align-items: center;
-    justify-content: center; gap: .4rem; margin-bottom: 2rem;
-    box-shadow: 0 0 60px rgba(120, 10, 10, .35) inset, 0 0 40px rgba(120, 10, 10, .25);
+    padding: 3.5rem 1.25rem 4rem;
+    overflow-x: hidden;
+  }
+  .icon {
+    width: 148px; height: 148px; border-radius: 33px;
+    box-shadow: 0 8px 40px rgba(196, 30, 30, .35), 0 2px 12px rgba(0,0,0,.8);
+    margin-bottom: 1.6rem;
   }
   h1 {
-    font-size: 2.6rem; font-weight: 900; letter-spacing: .04em;
-    color: #c41e1e; text-shadow: 0 2px 12px rgba(0,0,0,.8);
-    line-height: 1.05;
+    font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 900;
+    letter-spacing: .03em; line-height: 1.05; text-align: center;
+    color: #e8dccc; text-shadow: 0 2px 18px rgba(196, 30, 30, .45);
   }
-  .studio { font-size: .8rem; letter-spacing: .35em; text-transform: uppercase; color: #9c8877; }
-  .tag { font-size: 1.05rem; color: #cbb8a4; max-width: 30rem; margin-bottom: 2.2rem; font-style: italic; }
-  .badge {
-    display: inline-block; border: 1px solid #6b4b3a; border-radius: 10px;
-    padding: .65rem 1.3rem; color: #e8dccc; text-decoration: none;
-    font-family: ui-monospace, Menlo, monospace; font-size: .85rem;
-    letter-spacing: .05em; transition: background .2s;
+  h1 .accent { color: #c41e1e; }
+  .studio {
+    font-size: .75rem; letter-spacing: .4em; text-transform: uppercase;
+    color: #8ac43e; margin: .8rem 0 1.1rem;
   }
-  .badge:hover { background: rgba(196, 30, 30, .15); }
-  footer { margin-top: 3rem; font-size: .75rem; color: #7a6a5c; }
+  .tag {
+    font-size: 1.1rem; font-style: italic; color: #cbb8a4;
+    text-align: center; max-width: 32rem; line-height: 1.55;
+    margin-bottom: 2.2rem;
+  }
+  .tag strong { color: #e8dccc; font-style: normal; }
+  .store-badge {
+    display: inline-flex; align-items: center; gap: .8rem;
+    background: #000; border: 1.5px solid #a6a6a6; border-radius: 13px;
+    padding: .7rem 1.4rem; text-decoration: none; color: #fff;
+    transition: transform .15s, box-shadow .15s;
+    box-shadow: 0 4px 24px rgba(0,0,0,.6);
+  }
+  .store-badge:hover { transform: scale(1.04); box-shadow: 0 6px 32px rgba(196,30,30,.35); }
+  .store-badge svg { width: 28px; height: 34px; fill: #fff; }
+  .store-badge .txt { display: flex; flex-direction: column; line-height: 1.15; font-family: -apple-system, 'Helvetica Neue', sans-serif; }
+  .store-badge .small { font-size: .68rem; color: #ccc; }
+  .store-badge .big { font-size: 1.35rem; font-weight: 600; letter-spacing: -.01em; }
+  .price { margin-top: .9rem; font-size: .85rem; color: #9c8877; }
+
+  .shots {
+    display: flex; gap: 1.4rem; flex-wrap: wrap; justify-content: center;
+    margin-top: 3.2rem; max-width: 72rem;
+  }
+  .watch {
+    position: relative;
+    background: linear-gradient(160deg, #2a2a2e, #101013 70%);
+    border-radius: 44px; padding: 14px;
+    box-shadow: 0 12px 40px rgba(0,0,0,.75), inset 0 1px 1px rgba(255,255,255,.12);
+    transition: transform .2s;
+  }
+  .watch:hover { transform: translateY(-6px); }
+  .watch::after {  /* crown */
+    content: ''; position: absolute; right: -5px; top: 34%;
+    width: 7px; height: 34px; border-radius: 4px;
+    background: linear-gradient(90deg, #3a3a40, #17171a);
+    box-shadow: inset 0 1px 1px rgba(255,255,255,.15);
+  }
+  .watch img {
+    display: block; width: 172px; height: auto; border-radius: 32px;
+    background: #000;
+  }
+  .cap {
+    text-align: center; font-size: .8rem; color: #9c8877;
+    margin-top: .8rem; letter-spacing: .05em;
+  }
+  .features {
+    margin-top: 3.4rem; max-width: 40rem; text-align: center;
+    font-size: .98rem; line-height: 1.75; color: #cbb8a4;
+  }
+  .features b { color: #e8dccc; }
+  .skull { color: #c41e1e; }
+  footer {
+    margin-top: 3.6rem; font-size: .75rem; color: #7a6a5c; text-align: center;
+    line-height: 1.8;
+  }
   footer a { color: #a08a75; }
+  @media (max-width: 640px) {
+    .watch img { width: 138px; }
+    .shots { gap: 1rem; }
+  }
 </style>
 </head>
 <body>
-  <div class="ring">
-    <div class="studio">80085games</div>
-    <h1>WRIST<br>SURVIVORS</h1>
+  <img class="icon" src="/img/icon.png" alt="Wrist Survivors icon" width="148" height="148">
+  <h1>WRIST <span class="accent">SURVIVORS</span></h1>
+  <div class="studio">80085games</div>
+  <p class="tag">A survivors-like that lives on your <strong>Apple&nbsp;Watch</strong>.
+  Descend floor by floor into hell, earn your arsenal, duel the bosses.
+  <strong>First death is free.</strong></p>
+
+  <a class="store-badge" href="https://apps.apple.com/app/wrist-survivors/id6793478793">
+    <svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+    <span class="txt"><span class="small">Download on the</span><span class="big">App Store</span></span>
+  </a>
+  <div class="price">Free to try · one-time unlock $2.99 · no ads, no accounts</div>
+
+  <div class="shots">
+    <figure>
+      <div class="watch"><img src="/img/01_start.png" alt="Start screen — SURVIVE!!!" loading="lazy"></div>
+      <figcaption class="cap">Dare the spiral</figcaption>
+    </figure>
+    <figure>
+      <div class="watch"><img src="/img/05_combat_7.png" alt="Combat on the descent" loading="lazy"></div>
+      <figcaption class="cap">Fight the horde</figcaption>
+    </figure>
+    <figure>
+      <div class="watch"><img src="/img/04_swarm2_3.png" alt="Level-up choices" loading="lazy"></div>
+      <figcaption class="cap">Forge your build</figcaption>
+    </figure>
+    <figure>
+      <div class="watch"><img src="/img/02_boss_1.png" alt="Boss duel" loading="lazy"></div>
+      <figcaption class="cap">Duel the boss</figcaption>
+    </figure>
   </div>
-  <p class="tag">Survive the descent to hell — a survivors-like that lives on your Apple&nbsp;Watch. First death is free.</p>
-  <span class="badge">Coming to the App&nbsp;Store</span>
+
+  <p class="features">
+    <span class="skull">☠</span> Runs entirely on the watch — no iPhone needed mid-run<br>
+    <b>Descend</b> through cursed biomes · <b>evolve</b> your pistol into a one-shot rifle<br>
+    <b>Sword, Bone &amp; Holy Bible</b> in a 4-slot arsenal · freeze, burn &amp; pierce pickups<br>
+    Joystick or gyro control · leaderboards · 8-bit breakbeat &amp; Bach-techno soundtrack
+  </p>
+
   <footer>
-    <a href="/privacy/">Privacy Policy</a> · <a href="mailto:vnmtsl@gmail.com">Support</a>
-    <br>© 2026 Vladimir Matsel / 80085games
+    <a href="/privacy/">Privacy Policy</a> · <a href="mailto:vnmtsl@gmail.com">Support</a><br>
+    © 2026 Vladimir Matsel / 80085games. Apple Watch is a trademark of Apple Inc.
   </footer>
 </body>
 </html>
