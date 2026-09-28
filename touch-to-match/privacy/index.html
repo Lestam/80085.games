@@ -38,7 +38,8 @@
   <li>We collect <strong>anonymous gameplay statistics</strong> tied to a random installation ID — never to your name, email or Meta account.</li>
   <li>Leaderboards, achievements, the free trial (“Try before you buy”) and purchases such as the <strong>Gold Mountain</strong> gold pack work through <strong>Meta’s platform</strong>. The App reads your Meta user ID and display name only to show the leaderboard and highlight your own row.</li>
   <li>We <strong>never</strong> use your data for advertising or marketing, never sell it, and never share it with advertising networks.</li>
-  <li>Your music and audiobook files, listening positions, game saves and hand movements <strong>stay on your headset</strong>.</li>
+  <li>Your <strong>game saves</strong> (progress, farm, achievements) are also kept in <strong>our cloud</strong>, so your game survives a reinstall or a new headset. They are filed under a one-way code made from your Meta user ID — the ID itself is not stored — and you can delete them from the game at any time.</li>
+  <li>Your music and audiobook files, listening positions and hand movements <strong>stay on your headset</strong>.</li>
 </ul>
 
 <h2>2. Who is responsible (data controller)</h2>
@@ -86,7 +87,17 @@
   <li>Items in the in-game shop — such as rings, hand skins and cube sets — are paid for with in-game gold, not with real money.</li>
 </ul>
 
-<h3>4.4 Data that stays on your headset</h3>
+<h3>4.4 Cloud saves</h3>
+<p>So that your progress is not lost when you reinstall the App or play on another headset, the App keeps a copy of your game saves on our server:</p>
+<ul>
+  <li><strong>What is stored:</strong> your game saves — level progress, stars and score, your farm (including the record of which Gold Mountain purchases were delivered, so paid gold is never lost or given twice) and achievements.</li>
+  <li><strong>How it is tied to you:</strong> the App asks Meta for a proof of your Meta user ID; our server checks that proof with Meta and files your saves under a one-way keyed code (HMAC) made from that ID. The ID itself is not stored, and cloud saves are never linked to analytics.</li>
+  <li><strong>Where:</strong> on Cloudflare’s servers (Cloudflare Workers and D1), in Western Europe.</li>
+  <li><strong>Deleting it:</strong> in the App, open the hand menu and choose the cloud-and-bin icon, then confirm twice. The cloud copy is deleted at once and cloud saving stops on that headset; your game on the headset stays. You can turn cloud saving back on from the same place.</li>
+  <li><strong>Legal basis (EEA/UK):</strong> performance of the service you asked for — keeping your game (Art. 6(1)(b) GDPR).</li>
+</ul>
+
+<h3>4.5 Data that stays on your headset</h3>
 <ul>
   <li><strong>Game saves</strong> — progress, farm, achievements and settings, stored in the App’s folder.</li>
   <li><strong>Your music and audiobooks</strong> — with your permission, the built-in player reads audio files from your headset’s Music, Download, Audiobooks, Podcasts and Movies folders and plays them locally. Neither the files nor their names leave the device.</li>
@@ -108,21 +119,22 @@
 <tr><th>Party</th><th>What for</th><th>Role</th></tr>
 <tr><td><strong>Amplitude, Inc.</strong></td><td>Gameplay analytics (section 4.1)</td><td>Processor acting on our instructions</td></tr>
 <tr><td><strong>Meta Platforms</strong></td><td>App distribution, payments, entitlement, achievements, leaderboards</td><td>Independent controller under Meta’s own terms</td></tr>
+<tr><td><strong>Cloudflare, Inc.</strong></td><td>Cloud saves (section 4.4)</td><td>Processor acting on our instructions</td></tr>
 <tr><td><strong>Google (YouTube)</strong></td><td>Only if you open the in-game YouTube window</td><td>Independent controller under Google’s own terms</td></tr>
 </table>
 
 <h2>7. International data transfers</h2>
-<p>Amplitude may process analytics data in the United States. Where required, such transfers rely on appropriate safeguards, such as the European Commission’s Standard Contractual Clauses.</p>
+<p>Amplitude may process analytics data in the United States; Cloudflare, as a global network, may route requests through other countries. Where required, such transfers rely on appropriate safeguards, such as the European Commission’s Standard Contractual Clauses.</p>
 
 <h2>8. Retention</h2>
-<p>Analytics data is kept for no longer than 24 months. Data on your headset stays there until you delete the App.</p>
+<p>Analytics data is kept for no longer than 24 months. Cloud saves are deleted automatically 24 months after the last time they were updated, or at once when you delete them in the App. Data on your headset stays there until you delete the App.</p>
 
 <h2>9. Security</h2>
-<p>Analytics data is sent over encrypted connections (HTTPS). We keep the data we hold to the minimum described above.</p>
+<p>Analytics data and cloud saves are sent over encrypted connections (HTTPS); the secret used to check your Meta proof and to make the code your saves are filed under is held only on our server. We keep the data we hold to the minimum described above.</p>
 
 <h2>10. Your rights</h2>
 <p>Depending on where you live, you may have rights to access, correct, delete, restrict or object to processing, port your data, and lodge a complaint with a supervisory authority (in the EEA/UK: your local data protection authority).</p>
-<p><strong>Deleting your data.</strong> Uninstalling the App erases your saves and the installation ID, after which past analytics events can no longer be linked to you. If you want statistics we already collected deleted, write to us, mention Touch to Match, and we will delete them within 30 days. You may also ask for a copy of what we hold.</p>
+<p><strong>Deleting your data.</strong> Cloud saves: delete them in the App (hand menu → cloud-and-bin icon, confirmed twice). Because we do not store your Meta user ID, we cannot find your cloud save from an e-mail — the in-App option is how it is deleted. Uninstalling the App erases the saves on your headset and the installation ID, after which past analytics events can no longer be linked to you. If you want statistics we already collected deleted, write to us, mention Touch to Match, and we will delete them within 30 days. You may also ask for a copy of what we hold.</p>
 <p><strong>Important practical note (GDPR Art. 11):</strong> because analytics data is pseudonymous and we hold nothing that links it to your identity, we may be unable to identify which events are yours unless you can tell us your installation ID.</p>
 
 <h2>11. Children</h2>
