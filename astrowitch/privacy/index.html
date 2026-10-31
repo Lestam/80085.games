@@ -53,7 +53,7 @@
 
 <h2>3. Information we do NOT collect</h2>
 <ul>
-  <li>Your real name, email address, postal address or phone number (unless you write to us — see section 4.6).</li>
+  <li>Your email address, postal address or phone number (unless you write to us — see section 4.6). If you tell Lupita your name, it stays on your headset (section 4.7); we never receive it.</li>
   <li>Your location. The place of birth you tell Lupita is used only for the astrology calculation; the App does not use GPS or determine where you are.</li>
   <li><strong>Recordings of your voice.</strong> Neither we nor the App store audio recordings or transcripts of your conversations.</li>
   <li>Camera or passthrough images, or your likeness.</li>
@@ -69,7 +69,7 @@
   <li>Lupita listens through your headset’s <strong>microphone</strong>, only after you grant the App the microphone permission. You can withdraw that permission at any time in your headset’s settings; without it you can still use the buttons on the table, but Lupita cannot hear you.</li>
   <li>While a conversation is open, the App streams your <strong>voice</strong> from your headset, through our relay on Google Cloud (section 4.4), to <strong>Vertex AI</strong>, Google’s service that runs the <strong>Gemini</strong> models, together with the facts of your reading that the App calculated (for example, the cards you drew or the positions of the planets at your birth). Gemini turns your speech into text, generates Lupita’s answer and speaks it. The App also receives a text transcript of the conversation, which it uses only in the moment — to show it and to check it for the safety topics described in section 13 — and does not store.</li>
   <li>Google processes this data as our <strong>processor</strong>, under the Google Cloud terms and Cloud Data Processing Addendum for paid services. Under those terms Google <strong>does not use your conversations to train or fine-tune AI models</strong> without our permission (we have given none). Google may keep data briefly in a cache (deleted no later than 24 hours after it is written) and may log prompts to detect abuse and violations of its Acceptable Use Policy. See Google’s <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance">Vertex AI data governance</a>, <a href="https://cloud.google.com/terms/data-processing-addendum">Cloud Data Processing Addendum</a> and <a href="https://policies.google.com/privacy">Privacy Policy</a>.</li>
-  <li><strong>Please do not tell Lupita sensitive information</strong> — for example about your health, finances, other people, or anything you would not want an AI service to process. You do not need to tell her your real name.</li>
+  <li><strong>Please do not tell Lupita sensitive information</strong> — for example about your health, finances, other people, or anything you would not want an AI service to process. You do not need to tell her your real name — any name you like to be called is fine.</li>
 </ul>
 
 <h3>4.2 Your birth details (stored on your headset)</h3>
@@ -108,8 +108,8 @@
 <h3>4.6 When you contact us</h3>
 <p>If you email us, we receive your email address and whatever you write, and use them only to answer you and to keep a record of the request.</p>
 
-<h3>4.7 Data that stays on your headset</h3>
-<p>Your birth details (section 4.2), the date you accepted the start-up notice, and your settings are stored in the App’s own folder on your headset. We cannot access this data. The App does not allow this folder to be backed up to your Meta account (Cloud Backup), so it stays on the headset and is deleted when you uninstall the App.</p>
+<h3>4.7 Data that stays on your headset (Lupita’s memory)</h3>
+<p>So that Lupita remembers you between visits, the App keeps a small <strong>profile on your headset</strong>: the name you asked her to call you, your birth details (section 4.2), and a short history of your readings (the date, the kind of reading, its facts in one line and the start of what Lupita said; the latest 20). The profile is <strong>encrypted</strong> (AES-256-GCM) with a key that is created in your headset’s secure Android Keystore and never leaves it. Each Meta account on the headset has its own profile. At the start of each visit the App gives Lupita your name and your last few readings as part of the conversation, so they pass through Google as described in section 4.1. Your profile, the date you accepted the start-up notice and your settings are stored only in the App’s own folder. We cannot access this data. The App does not allow this folder to be backed up to your Meta account (Cloud Backup), so it stays on the headset and is deleted, together with its key, when you uninstall the App.</p>
 
 <h2>5. Legal bases (EEA, UK and similar laws)</h2>
 <div class="wrap"><table>
@@ -151,7 +151,7 @@
 <h2>11. Retention</h2>
 <ul>
   <li><strong>Voice and conversations:</strong> not stored by us or by the App. Google logs them for a limited period only for abuse prevention, under its terms (section 4.1).</li>
-  <li><strong>Birth details and other data on your headset:</strong> until you delete the App. We cannot access them.</li>
+  <li><strong>Lupita’s memory (name, birth details, reading history) and other data on your headset:</strong> until you delete the App; the history keeps only your latest 20 readings. We cannot access them.</li>
   <li><strong>Usage counters on our server:</strong> deleted automatically within a few weeks.</li>
   <li><strong>Purchase records on our server:</strong> up to 3 years after your last purchase, or earlier on request.</li>
   <li><strong>Emails:</strong> as long as needed to handle your request, and up to 3 years for requests about your rights, to show we answered them.</li>
