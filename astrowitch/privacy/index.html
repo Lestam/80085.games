@@ -30,7 +30,7 @@
 <body>
 
 <h1>AstroWitch (Meta Quest) — Privacy Policy</h1>
-<p class="meta"><strong>Effective date:</strong> October 27, 2026<br><strong>Last updated:</strong> November 4, 2026</p>
+<p class="meta"><strong>Effective date:</strong> October 27, 2026<br><strong>Last updated:</strong> November 9, 2026</p>
 
 <p>This Privacy Policy explains what personal data the <strong>AstroWitch</strong> app for Meta Quest (the “App”), developed and published by <strong>80085games</strong>, collects and processes, why, on what legal basis, who receives it, how long it is kept, and what rights and choices you have. It applies to the App as distributed through the Meta Horizon Store, and to communications with us about it. It does not apply to Meta, Google, Cloudflare or any other service, each of which has its own privacy policy.</p>
 <p>By installing or using the App you acknowledge that you have read this Policy. If you do not agree with it, please do not use the App.</p>
@@ -41,7 +41,7 @@
   <li>For astrology readings you tell Lupita your <strong>date, time and place of birth</strong>. The App calculates the readings <strong>on your headset</strong> and keeps your birth details <strong>only on your headset</strong> (section 4.2).</li>
   <li>Our small server checks with Meta that the App is genuine, and gives the headset a short-lived ticket for the AI service. It <strong>keeps no personal data about you</strong> and never receives your voice (section 4.4).</li>
   <li><strong>Payments</strong> are handled entirely by Meta. We never see your card or payment details (section 4.5).</li>
-  <li>We do <strong>not</strong> use analytics or advertising services, show no ads, and <strong>never sell</strong> your personal data.</li>
+  <li>We do <strong>not</strong> use analytics or advertising services, show no ads, and <strong>never sell</strong> your personal data. Our server only counts anonymous daily totals (for example, how many visitors chose each fortune teller) — nothing that identifies you (section 4.4).</li>
   <li>The App is for <strong>adults (18+)</strong> and is <strong>entertainment</strong>: nothing Lupita says is advice of any kind (section 13).</li>
   <li>You can ask us to <strong>delete your data</strong> at any time by email — see section 12.1.</li>
 </ul>
@@ -97,6 +97,7 @@
 <tr><th>Data</th><th>How we use it</th><th>Where it goes and how long it is kept</th></tr>
 <tr><td><strong>Meta user ID</strong> and the one-time proof (section 4.3)</td><td>To check with Meta that the request comes from a genuine copy of the App, before the session server gives the headset a short-lived ticket (valid for about 30 minutes) to talk to Lupita. This protects the service from abuse.</td><td>Sent once to Meta for the check. <strong>Not stored</strong> by our servers, in any form.</td></tr>
 <tr><td><strong>A daily count of conversations</strong> across all players, not linked to anyone</td><td>To cap our costs and protect the service from abuse.</td><td>Deleted automatically after 3 days.</td></tr>
+<tr><td><strong>Anonymous daily totals</strong> — when a visitor chooses a fortune teller, starts a reading or buys an add-on, the App sends only the name of that event and which fortune teller they chose (for example “chose Amanita” or “bought Year Book with Lupita”). No user ID, name or other identifier is sent with it.</td><td>To learn which fortune teller and which readings visitors prefer, and improve the App.</td><td>Kept as one number per event per day, for up to 400 days. We do not store IP addresses with them, and they cannot be linked to you.</td></tr>
 <tr><td><strong>Your voice, Lupita’s replies and the reading facts</strong>, in transit</td><td>The relay forwards them between your headset and Vertex AI during a conversation (section 4.1).</td><td>Not stored. The relay logs only a random session number, how long the conversation lasted and why it ended.</td></tr>
 <tr><td><strong>IP address</strong> and technical request data</td><td>Needed by Cloudflare and Google Cloud to deliver requests and protect the service.</td><td>Processed by Cloudflare and Google under their terms. Google Cloud’s request logs for the relay, which include the IP address, are kept for up to 30 days; we do not copy IP addresses into our own records.</td></tr>
 </table></div>
@@ -108,7 +109,7 @@
 <p>If you email us, we receive your email address and whatever you write, and use them only to answer you and to keep a record of the request.</p>
 
 <h3>4.7 Data that stays on your headset (Lupita’s memory)</h3>
-<p>So that Lupita remembers you between visits, the App keeps a small <strong>profile on your headset</strong>: the name you asked her to call you, your birth details (section 4.2), a short history of your readings (the date, the kind of reading, its facts in one line and the start of what Lupita said; the latest 20), and when you last used each free weekly reading and what you bought. The profile is <strong>encrypted</strong> (AES-256-GCM) with a key that is created in your headset’s secure Android Keystore and never leaves it. Each Meta account on the headset has its own profile. At the start of each visit the App gives Lupita your name and your last few readings as part of the conversation, so they pass through Google as described in section 4.1. Your profile, the date you accepted the start-up notice and your settings are stored only in the App’s own folder. We cannot access this data. The App does not allow this folder to be backed up to your Meta account (Cloud Backup), so it stays on the headset and is deleted, together with its key, when you uninstall the App.</p>
+<p>So that Lupita remembers you between visits, the App keeps a small <strong>profile on your headset</strong>: the name you asked her to call you, your birth details (section 4.2), a short history of your readings (the date, the kind of reading, its facts in one line and the start of what Lupita said; the latest 20), when you last used each free weekly reading and what you bought, and which fortune teller you chose. The profile is <strong>encrypted</strong> (AES-256-GCM) with a key that is created in your headset’s secure Android Keystore and never leaves it. Each Meta account on the headset has its own profile. At the start of each visit the App gives Lupita your name and your last few readings as part of the conversation, so they pass through Google as described in section 4.1. Your profile, the date you accepted the start-up notice and your settings are stored only in the App’s own folder. We cannot access this data. The App does not allow this folder to be backed up to your Meta account (Cloud Backup), so it stays on the headset and is deleted, together with its key, when you uninstall the App.</p>
 
 <h2>5. Legal bases (EEA, UK and similar laws)</h2>
 <div class="wrap"><table>
@@ -151,7 +152,7 @@
 <ul>
   <li><strong>Voice and conversations:</strong> not stored by us or by the App. Google logs them for a limited period only for abuse prevention, under its terms (section 4.1).</li>
   <li><strong>Lupita’s memory (name, birth details, reading history) and other data on your headset:</strong> until you delete the App; the history keeps only your latest 20 readings. We cannot access them.</li>
-  <li><strong>Our servers:</strong> no personal data about you. A daily conversation count that is not linked to anyone is deleted after 3 days; the relay’s own log (a random session number, duration and why it ended) and Google Cloud’s request logs for the relay (which include the IP address) are kept for up to 30 days.</li>
+  <li><strong>Our servers:</strong> no personal data about you. Anonymous daily totals (section 4.4) are kept for up to 400 days. A daily conversation count that is not linked to anyone is deleted after 3 days; the relay’s own log (a random session number, duration and why it ended) and Google Cloud’s request logs for the relay (which include the IP address) are kept for up to 30 days.</li>
   <li><strong>Google’s cache:</strong> deleted automatically no later than 24 hours after it is written (section 4.1).</li>
   <li><strong>Emails:</strong> as long as needed to handle your request, and up to 3 years for requests about your rights, to show we answered them.</li>
 </ul>
