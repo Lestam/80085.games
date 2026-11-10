@@ -37,7 +37,8 @@
 <ul>
 <li>The App is a <strong>free</strong> tactics game: you buy gear and give orders to a squad of five, the fighters play the round by themselves. You can play against the computer or <strong>online, one on one</strong>, against another player.</li>
 <li>Online matches connect you to the other player through <strong>Photon</strong> (a multiplayer service). The other player sees your squad, what you buy and your orders — <strong>not</strong> your Meta name or account.</li>
-<li>There is <strong>no voice chat, no text chat, no analytics and no advertising</strong>.</li>
+<li>There is <strong>no voice chat, no text chat and no advertising</strong>.</li>
+<li>We collect <strong>pseudonymous gameplay statistics</strong> (through Amplitude) tied to a <strong>random installation ID</strong> — never to your name, email or Meta account.</li>
 <li>Optional <strong>donations</strong> for the servers and links to our other games go through Meta’s store; we never receive payment details.</li>
 <li>Your settings and donation total <strong>stay on your headset</strong>.</li>
 <li>We <strong>never sell</strong> personal data.</li>
@@ -57,7 +58,6 @@
 <li>Your location (other than the network region your connection is routed to — section 4.2).</li>
 <li>Payment details — every purchase is processed entirely by Meta.</li>
 <li>Advertising identifiers, hardware identifiers, contacts, photos or files.</li>
-<li>Usage analytics — the App sends no gameplay statistics to us or anyone else.</li>
 </ul>
 
 <h2>4. Information the App handles, and why</h2>
@@ -65,20 +65,29 @@
 <p><strong>Entitlement check</strong> — at launch the App asks Meta whether you are allowed to use it. <strong>Purchases</strong> — see section 4.3. Meta processes this data as an independent controller under its own terms and privacy policy.</p>
 <h3>4.2 Online matches (Photon)</h3>
 <p>Online matches run through <strong>Photon</strong>, a multiplayer network service of Exit Games, Inc. To connect you, Photon processes your device’s <strong>IP address</strong> and a random identifier that Photon creates for the connection, and routes you to one of its server regions. During a match the App exchanges with the other player, through Photon, only what the game needs: your squad (fighters, gear, health), your purchases and orders, the battle itself and the score. We do not run our own game servers and do not keep match data after the match ends.</p>
-<h3>4.3 Donations and our other games</h3>
+<h3>4.3 Gameplay analytics (pseudonymous usage data)</h3>
+<p>To keep the game stable and see how it is played, the App sends gameplay statistics to our analytics provider, <strong>Amplitude, Inc.</strong> Each event carries:</p>
+<ul>
+<li>a <strong>random installation ID</strong>, created the first time you launch the App and stored in the App’s own storage. It is not derived from your device hardware and is not linked to your Meta account, name or email;</li>
+<li>the App version, device type, language, a session number and the time of the event;</li>
+<li>gameplay events such as app start, match and round start and end, the map, what was bought, sold or healed, orders, round and match results, online or offline mode, menu actions, donation-board views and outcomes (never payment details), and technical errors.</li>
+</ul>
+<p>Your Meta account and identity are <strong>never</strong> sent to analytics. Amplitude may receive your IP address as part of the network connection; we do not use it to locate or identify you.</p>
+<h3>4.4 Donations and our other games</h3>
 <p>The App is free. After a match it offers optional <strong>donations</strong> for the servers (repeatable, sold through the Meta Horizon Store) and links that open the Meta Horizon Store pages of our other games. Meta processes every payment; we never receive your payment details. The total you have donated is remembered only on your headset. Donations buy no gameplay advantage, are not charitable contributions, and refunds are governed by the Meta Horizon Store’s policies.</p>
-<h3>4.4 Data that stays on your headset</h3>
-<p>Settings, your last team and map choices, and your donation total are stored in the App’s own storage on your headset. We cannot access this data.</p>
-<h3>4.5 When you contact us</h3>
+<h3>4.5 Data that stays on your headset</h3>
+<p>Settings, your last team and map choices, your donation total, and the analytics installation ID and event queue are stored in the App’s own storage on your headset. We cannot access this data.</p>
+<h3>4.6 When you contact us</h3>
 <p>If you email us, we receive your email address and whatever you write, and use them only to answer you and to keep a record of the request.</p>
 
 <h2>5. Legal bases (EEA, UK and similar laws)</h2>
-<p>Online matches, entitlement and purchases: performance of our contract with you — providing the game you chose to play (GDPR Art. 6(1)(b)). Answering your messages: legitimate interests, and legal obligation where a request concerns your rights (Art. 6(1)(c)). Complying with law (section 7): legal obligation; legitimate interests.</p>
+<p>Online matches, entitlement and purchases: performance of our contract with you — providing the game you chose to play (GDPR Art. 6(1)(b)). Gameplay analytics: our legitimate interests in keeping the game working and improving it (Art. 6(1)(f)), assessed as low-risk because the data is pseudonymous, minimal and never used for marketing; you may object — see section 10. Answering your messages: legitimate interests, and legal obligation where a request concerns your rights (Art. 6(1)(c)). Complying with law (section 7): legal obligation; legitimate interests.</p>
 
 <h2>6. Service providers and other parties</h2>
 <ul>
 <li><strong>Meta Platforms</strong> — distribution, payments, entitlement; independent controller under Meta’s own terms.</li>
 <li><strong>Exit Games, Inc. (Photon)</strong> — connecting players in online matches; processor acting on our instructions.</li>
+<li><strong>Amplitude, Inc.</strong> — gameplay analytics; processor acting on our instructions.</li>
 </ul>
 <p>We do not sell personal data, and we do not share it with data brokers or advertising networks.</p>
 
@@ -86,24 +95,25 @@
 <p>We may disclose personal data if we believe in good faith that it is necessary to comply with a law, court order or lawful request by public authorities; to enforce our terms; to detect or prevent fraud, cheating, security or technical issues; or to protect the rights, property or safety of our players, the public or us. If the App is transferred to another owner, personal data related to it may be transferred as part of that transaction, subject to this Policy.</p>
 
 <h2>8. International data transfers</h2>
-<p>Photon routes you to one of its server regions, which may be outside your country; Meta processes data under its own terms. Where personal data is transferred from the EEA, UK or Switzerland to a country without an adequacy decision, the transfer relies on appropriate safeguards such as the Standard Contractual Clauses in our provider’s data processing terms.</p>
+<p>Photon routes you to one of its server regions, which may be outside your country; Amplitude may process analytics data in the United States; Meta processes data under its own terms. Where personal data is transferred from the EEA, UK or Switzerland to a country without an adequacy decision, the transfer relies on appropriate safeguards such as the Standard Contractual Clauses in our providers’ data processing terms.</p>
 
 <h2>9. Retention</h2>
 <ul>
 <li>Match data relayed through Photon: only for the duration of the match.</li>
+<li>Analytics data: no longer than 24 months, then deleted or aggregated so that it no longer relates to an installation.</li>
 <li>Emails: as long as needed to handle your request, and up to 3 years for requests about your rights.</li>
 <li>Data on your headset: until you delete the App.</li>
 </ul>
 
 <h2>10. Your rights and choices</h2>
 <p>Wherever you live, you have the right to know and access the personal data we hold about you, correct it, delete it, restrict or object to its processing, receive it in a portable format, and withdraw consent where processing relies on it. Laws such as the EU/UK GDPR, the California Consumer Privacy Act as amended by the CPRA, other US state privacy laws or Brazil’s LGPD may give you further rights, such as lodging a complaint with a supervisory authority. You will not be discriminated against for exercising these rights.</p>
-<p><strong>How:</strong> email <a href="mailto:vnmtsl@gmail.com">vnmtsl@gmail.com</a> with the subject “Dead Fools Club: Manager — Privacy”. We will reply within 30 days (or the period your law requires). Because the App keeps no account and no analytics, we normally hold no personal data about you beyond your emails. Data held by Meta is managed through your Meta account settings. Uninstalling the App deletes everything stored on your headset.</p>
+<p><strong>How:</strong> email <a href="mailto:vnmtsl@gmail.com">vnmtsl@gmail.com</a> with the subject “Dead Fools Club: Manager — Privacy”. We will reply within 30 days (or the period your law requires). Analytics data is tied only to a random installation ID, so we may be unable to identify which events are yours unless you give us that ID (GDPR Art. 11); the App shows it in its settings. Data held by Meta is managed through your Meta account settings. Uninstalling the App deletes everything stored on your headset, including the analytics installation ID, after which past analytics events can no longer be linked to you.</p>
 
 <h2>11. Children</h2>
 <p>The App is intended for players aged 13 and older and is not directed to children under 13. We do not knowingly collect personal data from children under 13; if you believe a child has provided us personal data, contact us and we will delete it.</p>
 
 <h2>12. Security</h2>
-<p>Connections to Photon are encrypted by Photon’s service; we keep no personal data on servers of our own. No method of transmission or storage is completely secure, but we keep what we handle to a minimum.</p>
+<p>Connections to Photon are encrypted by Photon’s service; analytics data is sent over HTTPS; we keep no personal data on servers of our own. No method of transmission or storage is completely secure, but we keep what we handle to a minimum.</p>
 
 <h2>13. Contact</h2>
 <p>Questions or requests: <a href="mailto:vnmtsl@gmail.com">vnmtsl@gmail.com</a> (subject “Dead Fools Club: Manager — Privacy”).</p>
