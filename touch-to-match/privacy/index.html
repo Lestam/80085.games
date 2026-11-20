@@ -29,7 +29,7 @@
 <body>
 
 <h1>Touch to Match-3 — Privacy Policy</h1>
-<p class="meta"><strong>Effective date:</strong> September 22, 2026<br><strong>Last updated:</strong> October 16, 2026</p>
+<p class="meta"><strong>Effective date:</strong> September 22, 2026<br><strong>Last updated:</strong> November 21, 2026</p>
 
 <p>This Privacy Policy explains what information the Touch to Match-3 game for Meta Quest (the “App”) handles, why, and what choices you have. We collect as little as possible — only what tells us how the game is played, so we can make it better.</p>
 
@@ -39,6 +39,7 @@
   <li>Leaderboards, achievements, the free trial (“Try before you buy”) and purchases such as the <strong>Gold Mountain</strong> gold pack work through <strong>Meta’s platform</strong>. The App reads your Meta user ID and display name only to show the leaderboard and highlight your own row.</li>
   <li>We <strong>never</strong> use your data for advertising or marketing, never sell it, and never share it with advertising networks.</li>
   <li>Your <strong>game saves</strong> (progress, farm, achievements) are also kept in <strong>our cloud</strong>, so your game survives a reinstall or a new headset. They are filed under a one-way code made from your Meta user ID — the ID itself is not stored — and you can delete them from the game at any time.</li>
+  <li><strong>Donut the cat</strong> can talk with you by voice. This is optional, <strong>for adults 18+ only</strong>, and starts only after you accept it in the game. While you talk, your voice goes to <strong>Google’s Gemini AI on Google Cloud (Vertex AI)</strong> (section 4.6). We do not record or keep your voice, and Google does not use it to train its models.</li>
   <li>Your music and audiobook files, listening positions and hand movements <strong>stay on your headset</strong>.</li>
 </ul>
 
@@ -50,7 +51,7 @@
 <ul>
   <li>Your name, email address, postal address or phone number.</li>
   <li>Your location.</li>
-  <li>Your voice, camera or passthrough images, or your likeness.</li>
+  <li>Your camera or passthrough images, or your likeness. Your voice is handled only if you choose to talk to the cat (section 4.6), and we never record or keep it.</li>
   <li>Hand-tracking data: the App uses hand positions in real time to let you play, and does not store or send them anywhere.</li>
   <li>The content of your files, or the names of your music or audiobook files.</li>
   <li>What you watch, type or search for in the in-game YouTube window.</li>
@@ -67,6 +68,7 @@
   <li>gameplay events, such as app start, level start and end, level number, attempt number, moves, score, stars, hints and boosters used, farm actions, in-game gold earned and spent, shop and wardrobe choices, tutorial steps, achievements, trial completion, the steps of an in-game offer or purchase (shown, checkout started, bought, refused or dismissed — for a purchase also the product and its price, as reported by Meta), opening the game’s store page, downloading the built-in audiobook chapters, and use of the music player and the browser window. For these we record only technical facts — for example how long music or an audiobook was played, how long the browser window was open, or search-query length — never titles, addresses you visit or what you type;</li>
   <li>technical health data: loading time, frame rate, and short error messages produced by the App itself, so we can fix crashes and slowdowns.</li>
 </ul>
+<p>Analytics also receives whether you are in the free trial, have finished it or own the game; the date Meta says you got the game (section 4.4); how many minutes you have played; and, if you talk to the cat, whether you accepted its terms, how long a conversation lasted and how many characters were said — never the words themselves. If you ask the cat to pass on feedback about the game, the short text the cat writes down from your words (up to 500 characters) is sent to analytics so we can read it.</p>
 <p>Your Meta user ID and display name are <strong>never</strong> sent to analytics.</p>
 <p><strong>Legal bases (EEA/UK users):</strong> our legitimate interests (Art. 6(1)(f) GDPR) in maintaining and improving the game, assessed as low-risk because the data is pseudonymous, minimal, and never used for marketing.</p>
 
@@ -90,8 +92,8 @@
 <h3>4.4 Cloud saves</h3>
 <p>So that your progress is not lost when you reinstall the App or play on another headset, the App keeps a copy of your game saves on our server:</p>
 <ul>
-  <li><strong>What is stored:</strong> your game saves — level progress, stars and score, your farm (including the record of which Gold Mountain purchases were delivered, so paid gold is never lost or given twice) and achievements.</li>
-  <li><strong>How it is tied to you:</strong> the App asks Meta for a proof of your Meta user ID; our server checks that proof with Meta and files your saves under a one-way keyed code (HMAC) made from that ID. The ID itself is not stored, and cloud saves are never linked to analytics.</li>
+  <li><strong>What is stored:</strong> your game saves — level progress, stars and score, your farm (including the record of which Gold Mountain purchases were delivered, so paid gold is never lost or given twice), achievements, and the date of the Terms and Privacy Policy you accepted for the cat (section 4.6). Next to it, the server counts how many cat conversations you had each day, to keep within the daily limit.</li>
+  <li><strong>How it is tied to you:</strong> the App asks Meta for a proof of your Meta user ID; our server checks that proof with Meta, asks Meta whether you own the game and since when, and files your saves under a one-way keyed code (HMAC) made from that ID. The ID itself is not stored, and cloud saves are never linked to analytics.</li>
   <li><strong>Where:</strong> on Cloudflare’s servers (Cloudflare Workers and D1), in Western Europe.</li>
   <li><strong>Deleting it:</strong> in the App, open the hand menu and choose the cloud-and-bin icon, then confirm twice. The cloud copy is deleted at once and cloud saving stops on that headset; your game on the headset stays. You can turn cloud saving back on from the same place.</li>
   <li><strong>Legal basis (EEA/UK):</strong> performance of the service you asked for — keeping your game (Art. 6(1)(b) GDPR).</li>
@@ -105,6 +107,19 @@
   <li><strong>Browser data</strong> — cookies of the in-game YouTube window are stored inside the App on your headset.</li>
   <li><strong>Analytics queue</strong> — events waiting to be sent while the headset is offline.</li>
 </ul>
+
+<h3>4.6 Talking with Donut the cat (Google Gemini on Vertex AI, adults 18+)</h3>
+<p>Donut the cat can talk with you by voice: answer questions about the game, help when you are stuck, and pass on your feedback. This feature is optional and <strong>only for adults aged 18 or over</strong>. Before the first conversation the App asks you to confirm that you are 18 or older and to accept our <a href="../terms/">Terms of Use</a> and this Policy; Meta’s age group for your account must also be “adult”.</p>
+<ul>
+  <li><strong>What is sent:</strong> while a conversation is open, the sound from your headset microphone and a short description of the game state (level, moves, what is on screen, your language) go to <strong>Vertex AI</strong>, Google Cloud’s service that runs the <strong>Gemini</strong> models and generates the cat’s voice and replies. They travel through our <strong>voice relay on Google Cloud Run</strong>, which passes them between your headset and Vertex AI and <strong>does not store or read them</strong>; it logs only a random session number, how long the conversation lasted and why it ended. Our save server only gives the App a short-lived ticket for the relay.</li>
+  <li><strong>What is kept:</strong> we do not record, store or listen to your voice or the conversation. Google processes it as our <strong>processor</strong>, under the Google Cloud terms and the <a href="https://cloud.google.com/terms/data-processing-addendum">Cloud Data Processing Addendum</a>. Under those terms Google <strong>does not use your conversations to train or fine-tune AI models</strong>; Vertex AI may cache data for up to 24 hours (<a href="https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance">Vertex AI data governance</a>).</li>
+  <li><strong>How to control it:</strong> the cat listens only during a conversation you start or accept, and hangs up after a quiet spell. You can refuse microphone access, or simply never open a conversation — the game works fully without it.</li>
+  <li>Please do not tell the cat personal details about yourself or others.</li>
+</ul>
+<p><strong>Legal basis (EEA/UK):</strong> your consent (Art. 6(1)(a) GDPR), given in the game, which you can withdraw at any time by not using the feature or by writing to us.</p>
+
+<h3>4.7 Purchase notifications from Meta</h3>
+<p>When an in-game purchase is made, refunded or charged back, Meta can notify our server; we pass on only the product, the status and the time to analytics, without any Meta user ID.</p>
 
 <h2>5. What we never do with data</h2>
 <ul>
@@ -120,14 +135,15 @@
 <tr><td><strong>Amplitude, Inc.</strong></td><td>Gameplay analytics (section 4.1)</td><td>Processor acting on our instructions</td></tr>
 <tr><td><strong>Meta Platforms</strong></td><td>App distribution, payments, entitlement, achievements, leaderboards</td><td>Independent controller under Meta’s own terms</td></tr>
 <tr><td><strong>Cloudflare, Inc.</strong></td><td>Cloud saves (section 4.4)</td><td>Processor acting on our instructions</td></tr>
+<tr><td><strong>Google (Google Cloud: Vertex AI and Cloud Run)</strong></td><td>The cat’s voice and replies, and the voice relay, only if you talk to the cat (section 4.6)</td><td>Processor acting on our instructions</td></tr>
 <tr><td><strong>Google (YouTube)</strong></td><td>Only if you open the in-game YouTube window</td><td>Independent controller under Google’s own terms</td></tr>
 </table>
 
 <h2>7. International data transfers</h2>
-<p>Amplitude may process analytics data in the United States; Cloudflare, as a global network, may route requests through other countries. Where required, such transfers rely on appropriate safeguards, such as the European Commission’s Standard Contractual Clauses.</p>
+<p>Amplitude may process analytics data in the United States; Google processes the cat’s conversations in the United States (us-central1); Cloudflare, as a global network, may route requests through other countries. Where required, such transfers rely on appropriate safeguards, such as the European Commission’s Standard Contractual Clauses.</p>
 
 <h2>8. Retention</h2>
-<p>Analytics data is kept for no longer than 24 months. Cloud saves are deleted automatically 24 months after the last time they were updated, or at once when you delete them in the App. Data on your headset stays there until you delete the App.</p>
+<p>Analytics data is kept for no longer than 24 months. Cloud saves are deleted automatically 24 months after the last time they were updated, or at once when you delete them in the App. The daily count of cat conversations is kept for no longer than 30 days. Conversations with the cat are not kept by us. Data on your headset stays there until you delete the App.</p>
 
 <h2>9. Security</h2>
 <p>Analytics data and cloud saves are sent over encrypted connections (HTTPS); the secret used to check your Meta proof and to make the code your saves are filed under is held only on our server. We keep the data we hold to the minimum described above.</p>
@@ -138,7 +154,7 @@
 <p><strong>Important practical note (GDPR Art. 11):</strong> because analytics data is pseudonymous and we hold nothing that links it to your identity, we may be unable to identify which events are yours unless you can tell us your installation ID.</p>
 
 <h2>11. Children</h2>
-<p>The App is not directed at children under 13, and we do not knowingly collect personal data from them. If you believe a child has provided us personal data, contact us and we will delete it.</p>
+<p>The App is not directed at children under 13, and we do not knowingly collect personal data from them. Talking with the cat is for adults 18 or over only (section 4.6). If you believe a child has provided us personal data, contact us and we will delete it.</p>
 
 <h2>12. Third-party links and services</h2>
 <p>The in-game browser window opens YouTube. What happens there is between you and Google, under Google’s terms and privacy policy.</p>
