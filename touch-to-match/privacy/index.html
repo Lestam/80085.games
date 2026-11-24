@@ -29,7 +29,7 @@
 <body>
 
 <h1>Touch to Match-3 — Privacy Policy</h1>
-<p class="meta"><strong>Effective date:</strong> September 22, 2026<br><strong>Last updated:</strong> November 21, 2026</p>
+<p class="meta"><strong>Effective date:</strong> September 22, 2026<br><strong>Last updated:</strong> November 24, 2026</p>
 
 <p>This Privacy Policy explains what information the Touch to Match-3 game for Meta Quest (the “App”) handles, why, and what choices you have. We collect as little as possible — only what tells us how the game is played, so we can make it better.</p>
 
@@ -111,10 +111,11 @@
 <h3>4.6 Talking with Donut the cat (Google Gemini on Vertex AI, adults 18+)</h3>
 <p>Donut the cat can talk with you by voice: answer questions about the game, help when you are stuck, and pass on your feedback. This feature is optional and <strong>only for adults aged 18 or over</strong>. Before the first conversation the App asks you to confirm that you are 18 or older and to accept our <a href="../terms/">Terms of Use</a> and this Policy; Meta’s age group for your account must also be “adult”.</p>
 <ul>
-  <li><strong>What is sent:</strong> while a conversation is open, the sound from your headset microphone and a short description of the game state (level, moves, what is on screen, your language) go to <strong>Vertex AI</strong>, Google Cloud’s service that runs the <strong>Gemini</strong> models and generates the cat’s voice and replies. They travel through our <strong>voice relay on Google Cloud Run</strong>, which passes them between your headset and Vertex AI and <strong>does not store or read them</strong>; it logs only a random session number, how long the conversation lasted and why it ended. Our save server only gives the App a short-lived ticket for the relay.</li>
+  <li><strong>What is sent:</strong> while a conversation is open, the sound from your headset microphone and a short description of the game state (level, moves, what is on screen, your language) go to <strong>Vertex AI</strong>, Google Cloud’s service that runs the <strong>Gemini</strong> models and generates the cat’s voice and replies. They travel through our <strong>voice relay on Google Cloud Run</strong>, which passes them between your headset and Vertex AI and <strong>does not store or read them</strong>; it logs only a random session number, how long the conversation lasted and why it ended. Google Cloud’s request logs for the relay, which include the connection’s IP address, are kept for up to 30 days. We do not copy IP addresses into our own records. Our save server only gives the App a short-lived ticket for the relay.</li>
   <li><strong>What is kept:</strong> we do not record, store or listen to your voice or the conversation. Google processes it as our <strong>processor</strong>, under the Google Cloud terms and the <a href="https://cloud.google.com/terms/data-processing-addendum">Cloud Data Processing Addendum</a>. Under those terms Google <strong>does not use your conversations to train or fine-tune AI models</strong>; Vertex AI may cache data for up to 24 hours (<a href="https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance">Vertex AI data governance</a>).</li>
   <li><strong>How to control it:</strong> the cat listens only during a conversation you start or accept, and hangs up after a quiet spell. You can refuse microphone access, or simply never open a conversation — the game works fully without it.</li>
   <li>Please do not tell the cat personal details about yourself or others.</li>
+  <li><strong>Deleting it:</strong> we keep no recording or transcript of your conversations, so there is nothing of them to delete on our side; Vertex AI deletes its cache by itself within 24 hours, and the relay’s request logs within 30 days. Feedback you asked the cat to pass on is part of the analytics data and is deleted with it on request (section 10). Your acceptance of the cat’s terms is part of your cloud save and is deleted with it.</li>
 </ul>
 <p><strong>Legal basis (EEA/UK):</strong> your consent (Art. 6(1)(a) GDPR), given in the game, which you can withdraw at any time by not using the feature or by writing to us.</p>
 
@@ -143,7 +144,7 @@
 <p>Amplitude may process analytics data in the United States; Google processes the cat’s conversations in the United States (us-central1); Cloudflare, as a global network, may route requests through other countries. Where required, such transfers rely on appropriate safeguards, such as the European Commission’s Standard Contractual Clauses.</p>
 
 <h2>8. Retention</h2>
-<p>Analytics data is kept for no longer than 24 months. Cloud saves are deleted automatically 24 months after the last time they were updated, or at once when you delete them in the App. The daily count of cat conversations is kept for no longer than 30 days. Conversations with the cat are not kept by us. Data on your headset stays there until you delete the App.</p>
+<p>Analytics data is kept for no longer than 24 months. Cloud saves are deleted automatically 24 months after the last time they were updated, or at once when you delete them in the App. The daily count of cat conversations and Google Cloud’s request logs for the cat’s voice relay are kept for no longer than 30 days. Conversations with the cat are not kept by us. Data on your headset stays there until you delete the App.</p>
 
 <h2>9. Security</h2>
 <p>Analytics data and cloud saves are sent over encrypted connections (HTTPS); the secret used to check your Meta proof and to make the code your saves are filed under is held only on our server. We keep the data we hold to the minimum described above.</p>
