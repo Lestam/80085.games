@@ -1,0 +1,6 @@
+/* 80085games: emoji bursts. window.fxPop(x,y,set,big) */
+(()=>{if(matchMedia('(prefers-reduced-motion: reduce)').matches){window.fxPop=()=>{};return}
+const layer=document.createElement('div');layer.setAttribute('aria-hidden','true');layer.style.cssText='position:fixed;inset:0;pointer-events:none;z-index:4;overflow:hidden';document.body.append(layer);
+let live=0,last=0,lx=0,ly=0;
+function pop(x,y,set,big){if(live>36)return;live++;const s=document.createElement('span');s.textContent=set[Math.random()*set.length|0];const z=(big?26:18)+Math.random()*10;s.style.cssText=`position:absolute;left:${x}px;top:${y}px;font-size:${z}px;line-height:1;will-change:transform,opacity`;layer.append(s);const ang=-Math.PI/2+(Math.random()-.5)*2.2,v=60+Math.random()*90,dx=Math.cos(ang)*v,dy=Math.sin(ang)*v,rot=(Math.random()-.5)*160;const an=s.animate([{transform:'translate(-50%,-50%) scale(.2)',opacity:0},{transform:`translate(calc(-50% + ${dx*.55}px),calc(-50% + ${dy*.55}px)) scale(1.15) rotate(${rot*.5}deg)`,opacity:1,offset:.35},{transform:`translate(calc(-50% + ${dx}px),calc(-50% + ${dy+90}px)) scale(.8) rotate(${rot}deg)`,opacity:0}],{duration:900+Math.random()*300,easing:'cubic-bezier(.2,.7,.4,1)'});an.onfinish=()=>{s.remove();live--}}
+window.fxPop=pop})();

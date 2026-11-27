@@ -76,6 +76,26 @@ PROJECTS = [
          image="dfc-manager.jpg", platforms=["Quest"],
          links={"Quest": meta_url("1855827625726641")},
          about=meta_about("dfc-manager"), details=meta_details("dfc-manager")),
+    dict(slug="dead-fools-club-headshot", id="dfc-headshot", name="Dead Fools Club: Headshot",
+         short="One hit to the head ends it: VR duels and 3v3 balloon brawls with fools who beg. Free to play.",
+         image="dfc-headshot.jpg", platforms=["Quest"],
+         links={"Quest": meta_url("1856281535681250")},
+         about="""Welcome to the Dead Fools Club. Nobody remembers how they got here. Everyone has a number over their head.
+
+DUEL — one on one. A single hit to the head or torso kills. No health bars, no second chances: read your opponent, take cover, take the shot. Every win moves your number up the ladder of 2400.
+
+3 VS 3 BALLOONS — every hit inflates your head. Take too many and you float away and pop. First team to ten pops wins.
+
+THEY TALK BACK — every fool in the club is a different person with a voice of their own. They were just teleported here. They plead, they cry, they scream when you hit them.
+
+A NEW LOOK EVERY MATCH — dither, halftone, voxel, thermal, neon and more: the same fight never looks the same twice.
+
+FREE TO PLAY. Join the club ($4.99) to dress your own fighter and open your own rooms for friends. Joining a friend's room is always free. Love the club? Support the servers with an optional donation — no gameplay advantage.
+
+Contains blood, censored nudity and disturbing voices. Not for everyone.""",
+         details=[("Genres", "Shooter, Action"), ("Game modes", "Single user, Multiplayer, Player versus player (PvP)"),
+                  ("Play", "Standing"), ("Input", "Controllers"), ("Languages", "English"), ("Comfort", "Intense"),
+                  ("Headsets", "Meta Quest 3S, Meta Quest 3, Meta Quest Pro, Meta Quest 2"), ("Released", "27 November 2026")]),
     dict(slug="tank-mania", id="tank-mania", name="Tank Mania",
          short="The classic tank game in VR: defend your HQ, alone or with a friend.",
          image="tank-mania.jpg", platforms=["Quest"],
@@ -179,11 +199,6 @@ Adults only (18+).""",
          about="""Listen to classic audiobooks while layered dioramas of the scene being read rise around you, in VR on Meta Quest.
 
 Readers back the release of new DioBooks with Paragraph Coins and earn coins back when others buy them.""",
-         details=[]),
-    dict(slug="dead-fools-club-headshot", id="dfc-headshot", name="Dead Fools Club: Headshot", status="soon",
-         short="A cruel little VR shooter: one shot to the head ends it.",
-         image="dfc-headshot.jpg", platforms=["Quest"], links={},
-         about="""A cruel little VR shooter for Meta Quest: one shot to the head ends it. Duel and 3v3 against bots that beg for their lives — or against other fools online.""",
          details=[]),
 ]
 

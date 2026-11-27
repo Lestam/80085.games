@@ -7,8 +7,7 @@
 <link rel="canonical" href="https://80085.games/wet-bottom/"><link rel="icon" href="/img/icon.png">
 <style>*{box-sizing:border-box}html{scroll-behavior:smooth}
 body{margin:0;font:16px/1.6 'Segoe UI',Arial,sans-serif;color:#163b32;background:#83c6b8}
-.bg{position:fixed;inset:0;z-index:-1;background:url(/img/pool.jpg) center 70%/cover;filter:saturate(.95)}
-.bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#e9fff433,#0d3a3060)}
+#scene{position:fixed;inset:0;z-index:-2;overflow:hidden}#photo,#water{position:absolute;width:100%;height:100%;inset:0}#photo{object-fit:cover;object-position:center 70%}#water{pointer-events:none}
 a{color:inherit}
 header{position:sticky;top:0;z-index:5;padding:14px clamp(16px,4vw,60px);display:flex;align-items:center;justify-content:space-between;gap:12px;background:linear-gradient(180deg,#f5fff0c0,#d9f4e870);border-bottom:1px solid #ffffff80;backdrop-filter:blur(10px)}
 .brand{font-size:26px;font-weight:800;letter-spacing:-1.7px;text-decoration:none;white-space:nowrap}.brand span{font-weight:400}
@@ -18,7 +17,10 @@ main{max-width:980px;margin:28px auto 60px;padding:0 clamp(14px,4vw,40px)}
 .back:hover{text-decoration:underline}
 .panel{border:1px solid #fff;border-radius:22px;background:linear-gradient(155deg,#ffffffee,#e9f9eedd);backdrop-filter:blur(14px);box-shadow:0 16px 40px #123f3740,inset 0 1px 1px #fff;padding:10px}
 .art{position:relative;border-radius:15px;overflow:hidden;aspect-ratio:16/9;background:#000}
-.art img{width:100%;height:100%;object-fit:cover;display:block}
+.art img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
+.art{transform:perspective(900px) rotateX(var(--rx,0)) rotateY(var(--ry,0));transition:transform .25s}
+.art::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at var(--x,50%) var(--y,50%),#ffffff55,transparent 45%);opacity:0;transition:opacity .25s}
+.art:hover::after{opacity:1}.art:hover img{transform:scale(1.03)}
 .art.wide{aspect-ratio:10/3}
 .art.icon{display:grid;place-items:center;background:radial-gradient(circle at 50% 35%,#f4fff0,#9ed9c4 65%,#5fae9a);aspect-ratio:21/9}
 .art.icon img{width:auto;height:70%;aspect-ratio:1;border-radius:22%;box-shadow:0 10px 24px #123f3750}
@@ -45,22 +47,16 @@ a:focus-visible,button:focus-visible{outline:3px solid #126b70;outline-offset:3p
 .media h2,.more h2{font-size:20px;margin:0 0 10px;letter-spacing:-.02em}
 .trailer{position:relative;border-radius:15px;overflow:hidden;background:#000;aspect-ratio:16/9;margin-bottom:12px}
 .trailer video{width:100%;height:100%;display:block;object-fit:cover}
-.strip{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 2px 10px;scrollbar-width:thin}
-.strip button{flex:none;height:200px;padding:0;border:1px solid #fff;border-radius:12px;overflow:hidden;background:#0d3a30;cursor:zoom-in;scroll-snap-align:start;box-shadow:0 6px 14px #123f3730;transition:transform .2s}
-.strip button:hover{transform:translateY(-3px)}
-.strip img{height:100%;width:auto;display:block}
-.lb{position:fixed;inset:0;z-index:20;display:none;place-items:center;background:#0b2a24e6;backdrop-filter:blur(6px)}
-.lb.open{display:grid}.lb img{max-width:92vw;max-height:86vh;border-radius:12px;box-shadow:0 20px 50px #0008}
-.lb button{position:absolute;border:0;background:#effff0;color:#163b32;font:700 22px/1 inherit;width:46px;height:46px;border-radius:50%;cursor:pointer}
-.lb .x{top:18px;right:18px}.lb .pv{left:18px;top:50%}.lb .nx{right:18px;top:50%}
+.trailer{margin:18px 0 6px}
+.shot{margin:18px 0;text-align:center}.shot img{max-width:100%;max-height:78vh;border-radius:14px;box-shadow:0 10px 26px #123f3740;display:inline-block}
+.shots{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:18px}.shots .shot{margin:0;flex:1 1 420px}
 .more{margin-top:16px}
 .mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px}
 .mgrid a{display:block;text-decoration:none;border:1px solid #fff;border-radius:14px;overflow:hidden;background:#f2fff0d8;box-shadow:0 8px 18px #124c3c28;transition:transform .2s,box-shadow .2s}
 .mgrid a:hover{transform:translateY(-4px) rotate(-.6deg);box-shadow:0 14px 26px #124c3c40}
 .mgrid img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#9ed9c4}
 .mgrid span{display:block;padding:8px 10px;font-weight:700;font-size:14px;line-height:1.25}
-@media(max-width:700px){.strip button{height:150px}}
-@media(max-width:700px){.cols{grid-template-columns:1fr}.brand{font-size:21px}nav{gap:12px;font-size:13px}}</style></head><body><div class="bg" aria-hidden="true"></div>
+@media(max-width:700px){.cols{grid-template-columns:1fr}.brand{font-size:21px}nav{gap:12px;font-size:13px}}</style></head><body><div id="scene" aria-hidden="true"><img id="photo" src="/img/pool.jpg" alt=""><canvas id="water"></canvas></div>
 <header><a class="brand" href="/">80085<span>games</span></a><nav><a href="/#games">Games</a><a href="/#studio">Studio</a><a href="/#contact">Contact</a></nav></header>
 <main>
 <a class="back" href="/#games">← All games</a>
@@ -70,6 +66,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #126b70;outline-offset:3p
 <h1>Wet Bottom</h1>
 <p class="lead">The classic sea battle as a glowing hologram on your table, played with your hands.</p>
 <div class="platforms"><a class="store" href="https://www.meta.com/experiences/1840880350554702/" target="_blank" rel="noopener">Meta Quest ↗<small>Meta Horizon Store</small></a></div>
+<div class="trailer"><video controls preload="none" playsinline poster="/video/wet-bottom.jpg" src="/video/wet-bottom.mp4" aria-label="Wet Bottom trailer"></video></div>
 <div class="about">
 <p>Wet Bottom is the sea battle you played on paper, projected as a hologram into your room.</p>
 <p>A tray of glowing contour lines becomes the sea. Your fleet rides the swell; on your turn the projector flickers over to the enemy&#x27;s waters — another seabed, ships you cannot see until you sink them.</p>
@@ -81,20 +78,26 @@ a:focus-visible,button:focus-visible{outline:3px solid #126b70;outline-offset:3p
 <li>Write it in the air with a pinch — &quot;D6&quot;</li>
 <li>Or hold the radio key and say it: &quot;delta six, fire!&quot; (recognised on the headset)</li>
 </ul>
+<figure class="shot"><img src="/img/shots/wet-bottom/01.jpg" alt="Wet Bottom screenshot 1" loading="lazy"></figure>
 <h3>TWO WAYS TO PLAY</h3>
 <ul>
 <li>Turn by turn: a hit fires again</li>
 <li>Countdown salvo: ten shots your first turn, nine the next… down to one</li>
 </ul>
+<figure class="shot"><img src="/img/shots/wet-bottom/02.jpg" alt="Wet Bottom screenshot 2" loading="lazy"></figure>
 <h3>PLANES, SUBMARINES, AA GUNS</h3>
 <p>Earn coins, buy them from the rack at your elbow. Fly a bomber down two columns, send a submarine under the enemy&#x27;s fleet and aim its torpedo, keep AA guns ready for the raids that come back at you.</p>
+<figure class="shot"><img src="/img/shots/wet-bottom/03.jpg" alt="Wet Bottom screenshot 3" loading="lazy"></figure>
 <h3>CLIMB THE RANKS</h3>
 <p>From Cabin Boy to Admiral: each rank a sharper gunner.</p>
+<figure class="shot"><img src="/img/shots/wet-bottom/04.jpg" alt="Wet Bottom screenshot 4" loading="lazy"></figure>
 <h3>PLAY A FRIEND ONLINE</h3>
 <p>Invite a friend from Meta Horizon or share a 4-digit room code, then battle one-on-one. Climb the world and friends Victories leaderboards.</p>
+<figure class="shot"><img src="/img/shots/wet-bottom/05.jpg" alt="Wet Bottom screenshot 5" loading="lazy"></figure>
 <h3>MADE FOR MIXED REALITY</h3>
 <p>Play over your real room, in darkness or under a dusk sky. Lay the sea flat, tilt it to 45° or stand it up like a wall — the console stays at your hands. Drag the whole field wherever it suits you.</p>
 <p>Hand tracking first; Touch controllers work too. A navigator calls the battle in English or Russian.</p>
+<div class="shots"><figure class="shot"><img src="/img/shots/wet-bottom/06.jpg" alt="Wet Bottom screenshot 6" loading="lazy"></figure></div>
 </div>
 </div>
 </article>
@@ -102,14 +105,9 @@ a:focus-visible,button:focus-visible{outline:3px solid #126b70;outline-offset:3p
 <section class="card"><h2>Details</h2><dl><dt>Genres</dt><dd>Tabletop, Strategy</dd><dt>Game modes</dt><dd>Single user, Multiplayer, Player versus player (PvP)</dd><dt>Play</dt><dd>Sitting, Standing</dd><dt>Input</dt><dd>Hands</dd><dt>Languages</dt><dd>English, Russian</dd><dt>Comfort</dt><dd>Comfortable</dd><dt>Headsets</dt><dd>Meta Quest 3S, Meta Quest 3, Meta Quest Pro, Meta Quest 2</dd><dt>Released</dt><dd>2 November 2026</dd></dl></section>
 <section class="card" id="support"><h2>Support</h2><p>Questions, bugs or feedback: <a href="#support" data-m="bW9jLmxpYW1nQGxzdG1udg==" data-s="Wet Bottom%20%E2%80%94%20Support" data-show="1">write to us</a></p><p><a href="privacy/">Privacy Policy</a></p></section>
 </div>
-<section class="panel media"><div class="body" style="padding:14px 16px 12px"><h2>Trailer</h2><div class="trailer"><video controls preload="none" playsinline poster="/video/wet-bottom.jpg" src="/video/wet-bottom.mp4" aria-label="Wet Bottom trailer"></video></div><h2>Screenshots</h2><div class="strip"><button type="button" data-full="/img/shots/wet-bottom/01.jpg" aria-label="Open screenshot 1 of 6"><img src="/img/shots/wet-bottom/01.jpg" alt="Wet Bottom screenshot 1" loading="lazy"></button><button type="button" data-full="/img/shots/wet-bottom/02.jpg" aria-label="Open screenshot 2 of 6"><img src="/img/shots/wet-bottom/02.jpg" alt="Wet Bottom screenshot 2" loading="lazy"></button><button type="button" data-full="/img/shots/wet-bottom/03.jpg" aria-label="Open screenshot 3 of 6"><img src="/img/shots/wet-bottom/03.jpg" alt="Wet Bottom screenshot 3" loading="lazy"></button><button type="button" data-full="/img/shots/wet-bottom/04.jpg" aria-label="Open screenshot 4 of 6"><img src="/img/shots/wet-bottom/04.jpg" alt="Wet Bottom screenshot 4" loading="lazy"></button><button type="button" data-full="/img/shots/wet-bottom/05.jpg" aria-label="Open screenshot 5 of 6"><img src="/img/shots/wet-bottom/05.jpg" alt="Wet Bottom screenshot 5" loading="lazy"></button><button type="button" data-full="/img/shots/wet-bottom/06.jpg" aria-label="Open screenshot 6 of 6"><img src="/img/shots/wet-bottom/06.jpg" alt="Wet Bottom screenshot 6" loading="lazy"></button></div></div></section>
 
-<section class="panel more"><div class="body" style="padding:14px 16px 16px"><h2>More from 80085games</h2><div class="mgrid"><a href="/valxr/"><img src="/img/games/valxr.jpg" alt="" loading="lazy"><span>VALXR</span></a><a href="/trrrack/"><img src="/img/games/trrrack.jpg" alt="" loading="lazy"><span>TRRRack</span></a><a href="/touch-to-match/"><img src="/img/games/touch-to-match.jpg" alt="" loading="lazy"><span>Touch to Match-3</span></a><a href="/astrowitch/"><img src="/img/games/astrowitch.jpg" alt="" loading="lazy"><span>AstroWitch</span></a><a href="/dead-fools-club-manager/"><img src="/img/games/dfc-manager.jpg" alt="" loading="lazy"><span>Dead Fools Club: Manager</span></a><a href="/tank-mania/"><img src="/img/games/tank-mania.jpg" alt="" loading="lazy"><span>Tank Mania</span></a></div></div></section>
+<section class="panel more"><div class="body" style="padding:14px 16px 16px"><h2>More from 80085games</h2><div class="mgrid"><a href="/valxr/"><img src="/img/games/valxr.jpg" alt="" loading="lazy"><span>VALXR</span></a><a href="/trrrack/"><img src="/img/games/trrrack.jpg" alt="" loading="lazy"><span>TRRRack</span></a><a href="/touch-to-match/"><img src="/img/games/touch-to-match.jpg" alt="" loading="lazy"><span>Touch to Match-3</span></a><a href="/astrowitch/"><img src="/img/games/astrowitch.jpg" alt="" loading="lazy"><span>AstroWitch</span></a><a href="/dead-fools-club-manager/"><img src="/img/games/dfc-manager.jpg" alt="" loading="lazy"><span>Dead Fools Club: Manager</span></a><a href="/dead-fools-club-headshot/"><img src="/img/games/dfc-headshot.jpg" alt="" loading="lazy"><span>Dead Fools Club: Headshot</span></a></div></div></section>
 </main>
 <footer>© 2026 80085games · Vladimir Matsel</footer>
-<div class="lb" role="dialog" aria-modal="true" aria-label="Screenshot"><img alt=""><button class="x" type="button" aria-label="Close">×</button><button class="pv" type="button" aria-label="Previous">‹</button><button class="nx" type="button" aria-label="Next">›</button></div><script>(()=>{const lb=document.querySelector('.lb');if(!lb)return;const im=lb.querySelector('img'),bs=[...document.querySelectorAll('.strip button')];let i=0;
-function show(n){i=(n+bs.length)%bs.length;im.src=bs[i].dataset.full;im.alt=bs[i].querySelector('img').alt;lb.classList.add('open');lb.querySelector('.x').focus()}
-function close(){lb.classList.remove('open');bs[i].focus()}
-bs.forEach((b,n)=>b.onclick=()=>show(n));lb.querySelector('.x').onclick=close;lb.querySelector('.pv').onclick=()=>show(i-1);lb.querySelector('.nx').onclick=()=>show(i+1);
-lb.onclick=e=>{if(e.target===lb)close()};addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1)})})()</script><script>document.addEventListener("click",function(e){var a=e.target.closest("a[data-m]");if(!a||a.dataset.open)return;var m=atob(a.dataset.m).split("").reverse().join("");a.href="mailto:"+m+(a.dataset.s?"?subject="+a.dataset.s:"");if(a.dataset.show)a.textContent=m;a.dataset.open=1})</script>
+<script>document.addEventListener("click",function(e){var a=e.target.closest("a[data-m]");if(!a||a.dataset.open)return;var m=atob(a.dataset.m).split("").reverse().join("");a.href="mailto:"+m+(a.dataset.s?"?subject="+a.dataset.s:"");if(a.dataset.show)a.textContent=m;a.dataset.open=1})</script><script>const motion=matchMedia('(prefers-reduced-motion: reduce)');</script><script src="/js/pool.js"></script><script src="/js/fx.js"></script><script>(()=>{if(motion.matches)return;const set=["🚢", "💣", "🌊"],pop=window.fxPop,art=document.querySelector('.art');let last=0;art.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse')for(let k=0;k<6;k++)pop(e.clientX,e.clientY,set,true)});art.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;const r=art.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;art.style.setProperty('--rx',(0.5-y)*6+'deg');art.style.setProperty('--ry',(x-.5)*6+'deg');art.style.setProperty('--x',x*100+'%');art.style.setProperty('--y',y*100+'%');const t=performance.now();if(t-last>140){last=t;pop(e.clientX,e.clientY,set)}});art.addEventListener('pointerleave',()=>{art.style.setProperty('--rx','0deg');art.style.setProperty('--ry','0deg')});art.addEventListener('pointerdown',e=>{for(let k=0;k<14;k++)pop(e.clientX,e.clientY,set,true)});document.querySelectorAll('.store').forEach(b=>b.addEventListener('pointerenter',e=>{for(let k=0;k<4;k++)pop(e.clientX,e.clientY,set)}))})()</script>
 </body></html>
