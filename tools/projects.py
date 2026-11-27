@@ -36,6 +36,9 @@ def meta_details(key):
 APP_STORE_WS = "https://apps.apple.com/app/wrist-survivor/id6813660787"
 APP_STORE_DICE = "https://apps.apple.com/app/dice-roller-d20-tarot/id6829247614"
 
+# hover particles on the homepage card
+FX = {'dead-fools-club': '💥 🔫 💀', 'wet-bottom': '🚢 💣 🌊', 'valxr': '👻 ⚔️ ✨', 'trrrack': '🏁 🚀 💨', 'touch-to-match': '💎 🍬 🍭', 'astrowitch': '🔮 ⭐ 🌙', 'dead-fools-club-manager': '💰 🪖 💥', 'tank-mania': '💥 🧱 🏁', 'wrist-survivors': '🔥 😈 💀', 'diceroller': '🎲 🪙 🃏', 'braid-rescue': '👑 🪙 🐍', 'gogogo': '⚫ ⚪', 'spanish-with-maria': '💬 🇪🇸 ❤️', 'english-with-maria': '💬 🇬🇧 ☕', 'diobooks': '📖 🏰 🎧', 'dead-fools-club-headshot': '🎯 💀 💥'}
+
 # platform key -> label; links: platform -> store url (only live, verified)
 PROJECTS = [
     dict(slug="dead-fools-club", id="dfc-3v3", name="Dead Fools Club: 3v3", featured=True,
@@ -188,3 +191,4 @@ for p in PROJECTS:
     p.setdefault("status", "live")
     p.setdefault("soon", [])
     p["page"] = f"/{p['slug']}/"
+    p["fx"] = FX.get(p["slug"], "✨").split()

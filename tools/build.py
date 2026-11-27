@@ -105,8 +105,61 @@ h1{font-size:clamp(32px,5vw,54px);line-height:1.05;letter-spacing:-.05em;margin:
 dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:0;font-size:14px}dt{font-weight:700}dd{margin:0}
 .card ul{margin:6px 0 0;padding-left:18px;font-size:14px}
 footer{text-align:center;padding:20px;color:#204c3e;background:#effff1c0}
-a:focus-visible{outline:3px solid #126b70;outline-offset:3px}
+a:focus-visible,button:focus-visible{outline:3px solid #126b70;outline-offset:3px}
+.media{margin-top:16px}
+.media h2,.more h2{font-size:20px;margin:0 0 10px;letter-spacing:-.02em}
+.trailer{position:relative;border-radius:15px;overflow:hidden;background:#000;aspect-ratio:16/9;margin-bottom:12px}
+.trailer video{width:100%;height:100%;display:block;object-fit:cover}
+.strip{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 2px 10px;scrollbar-width:thin}
+.strip button{flex:none;height:200px;padding:0;border:1px solid #fff;border-radius:12px;overflow:hidden;background:#0d3a30;cursor:zoom-in;scroll-snap-align:start;box-shadow:0 6px 14px #123f3730;transition:transform .2s}
+.strip button:hover{transform:translateY(-3px)}
+.strip img{height:100%;width:auto;display:block}
+.lb{position:fixed;inset:0;z-index:20;display:none;place-items:center;background:#0b2a24e6;backdrop-filter:blur(6px)}
+.lb.open{display:grid}.lb img{max-width:92vw;max-height:86vh;border-radius:12px;box-shadow:0 20px 50px #0008}
+.lb button{position:absolute;border:0;background:#effff0;color:#163b32;font:700 22px/1 inherit;width:46px;height:46px;border-radius:50%;cursor:pointer}
+.lb .x{top:18px;right:18px}.lb .pv{left:18px;top:50%}.lb .nx{right:18px;top:50%}
+.more{margin-top:16px}
+.mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px}
+.mgrid a{display:block;text-decoration:none;border:1px solid #fff;border-radius:14px;overflow:hidden;background:#f2fff0d8;box-shadow:0 8px 18px #124c3c28;transition:transform .2s,box-shadow .2s}
+.mgrid a:hover{transform:translateY(-4px) rotate(-.6deg);box-shadow:0 14px 26px #124c3c40}
+.mgrid img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#9ed9c4}
+.mgrid span{display:block;padding:8px 10px;font-weight:700;font-size:14px;line-height:1.25}
+@media(max-width:700px){.strip button{height:150px}}
 @media(max-width:700px){.cols{grid-template-columns:1fr}.brand{font-size:21px}nav{gap:12px;font-size:13px}}"""
+
+
+GALLERY_JS = """<script>(()=>{const lb=document.querySelector('.lb');if(!lb)return;const im=lb.querySelector('img'),bs=[...document.querySelectorAll('.strip button')];let i=0;
+function show(n){i=(n+bs.length)%bs.length;im.src=bs[i].dataset.full;im.alt=bs[i].querySelector('img').alt;lb.classList.add('open');lb.querySelector('.x').focus()}
+function close(){lb.classList.remove('open');bs[i].focus()}
+bs.forEach((b,n)=>b.onclick=()=>show(n));lb.querySelector('.x').onclick=close;lb.querySelector('.pv').onclick=()=>show(i-1);lb.querySelector('.nx').onclick=()=>show(i+1);
+lb.onclick=e=>{if(e.target===lb)close()};addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1)})})()</script>"""
+
+
+def media_html(p):
+    slug = p["slug"]
+    shots = sorted(f for f in os.listdir(os.path.join(ROOT, "img", "shots", slug))) if os.path.isdir(os.path.join(ROOT, "img", "shots", slug)) else []
+    video = os.path.exists(os.path.join(ROOT, "video", slug + ".mp4"))
+    if not shots and not video:
+        return "", ""
+    name = e(p["name"])
+    out = ['<section class="panel media"><div class="body" style="padding:14px 16px 12px">']
+    if video:
+        out.append(f'<h2>Trailer</h2><div class="trailer"><video controls preload="none" playsinline poster="/video/{slug}.jpg" src="/video/{slug}.mp4" aria-label="{name} trailer"></video></div>')
+    if shots:
+        out.append('<h2>Screenshots</h2><div class="strip">' + "".join(
+            f'<button type="button" data-full="/img/shots/{slug}/{f}" aria-label="Open screenshot {n} of {len(shots)}"><img src="/img/shots/{slug}/{f}" alt="{name} screenshot {n}" loading="lazy"></button>'
+            for n, f in enumerate(shots, 1)) + "</div>")
+    out.append("</div></section>")
+    lb = ('<div class="lb" role="dialog" aria-modal="true" aria-label="Screenshot"><img alt=""><button class="x" type="button" aria-label="Close">×</button>'
+          '<button class="pv" type="button" aria-label="Previous">‹</button><button class="nx" type="button" aria-label="Next">›</button></div>' + GALLERY_JS) if shots else ""
+    return "".join(out), lb
+
+
+def more_html(p):
+    i = next(n for n, q in enumerate(PROJECTS) if q["slug"] == p["slug"])
+    others = [PROJECTS[(i + k) % len(PROJECTS)] for k in range(1, 7)]
+    cards = "".join(f'<a href="{q["page"]}"><img src="/img/games/{q["image"]}" alt="" loading="lazy"><span>{e(q["name"])}</span></a>' for q in others)
+    return f'<section class="panel more"><div class="body" style="padding:14px 16px 16px"><h2>More from 80085games</h2><div class="mgrid">{cards}</div></div></section>'
 
 
 def page(p):
@@ -130,6 +183,7 @@ def page(p):
     credits = credits_for(slug).replace("<h2>Credits</h2>", "<h2>Credits</h2>")
     side = f'<section class="card"><h2>Details</h2><dl>{details}</dl></section>' if details else ""
     desc = e(p["short"])
+    media, lightbox = media_html(p)
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <!-- 80085-detail: generated by tools/build.py -->
 <title>{e(title)} — 80085games</title>
@@ -156,10 +210,12 @@ def page(p):
 {side}
 <section class="card" id="support"><h2>Support</h2><p>Questions, bugs or feedback: <a href="#support" data-m="{EMAIL_B64}" data-s="{subject}" data-show="1">write to us</a></p>{('<p>' + ' · '.join(legal) + '</p>') if legal else ''}</section>
 </div>
+{media}
 {('<div class="cols"><section class="card" style="grid-column:1/-1">' + credits + '</section></div>') if credits else ''}
+{more_html(p)}
 </main>
 <footer>© 2026 80085games · Vladimir Matsel</footer>
-{MAIL_JS}
+{lightbox}{MAIL_JS}
 </body></html>
 """
 
@@ -180,10 +236,10 @@ def build_home():
     s = open(path, encoding="utf-8").read()
     games = [dict(name=p["name"], desc=p["short"], image=f"img/games/{p['image']}", platforms=p["platforms"],
                   soon=p["soon"], links=p["links"], page=p["page"], status=p["status"],
-                  wide=bool(p.get("wide")), icon=bool(p.get("icon")), featured=bool(p.get("featured")))
+                  wide=bool(p.get("wide")), icon=bool(p.get("icon")), featured=bool(p.get("featured")), fx=p["fx"])
              for p in PROJECTS]
     i0 = s.index("const games=")
-    i1 = s.index("\n", i0)
+    i1 = s.index("];", i0) + 2  # the array only; declarations follow on the same line
     s = s[:i0] + "const games=" + json.dumps(games, ensure_ascii=False) + ";" + s[i1:]
     s = re.sub(r'id="count" role="status">\d+ projects<', f'id="count" role="status">{len(games)} projects<', s)
     open(path, "w", encoding="utf-8").write(s)
